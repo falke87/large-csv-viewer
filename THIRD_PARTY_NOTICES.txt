@@ -1,0 +1,20 @@
+Large CSV Viewer – third-party components in the Windows package
+================================================================
+
+Qt 6.8.3 (Qt6Core.dll, Qt6Gui.dll, Qt6Widgets.dll, platforms/qwindows.dll, styles/qmodernwindowsstyle.dll)
+  Copyright (C) The Qt Company Ltd. and other contributors.
+  License: GNU Lesser General Public License v3 (licenses/LGPL-3.0.txt, which refers to licenses/GPL-3.0.txt).
+  The Qt libraries are linked dynamically and can be replaced by the user with other compatible builds.
+  Qt source code: https://download.qt.io/archive/qt/6.8/6.8.3/single/
+  Qt contains zlib (Copyright (C) 1995-2024 Jean-loup Gailly and Mark Adler, zlib license),
+  which this program uses to write .xlsx files.
+
+MinGW-w64 GCC runtime (libgcc_s_seh-1.dll, libstdc++-6.dll)
+  License: GNU GPL v3 with the GCC Runtime Library Exception 3.1.
+  https://gcc.gnu.org/onlinedocs/libstdc++/manual/license.html
+
+MinGW-w64 winpthreads (libwinpthread-1.dll)
+  License: MIT / BSD-style, Copyright (c) 2011-2016 mingw-w64 project.
+  https://github.com/mingw-w64/mingw-w64/tree/master/mingw-w64-libraries/winpthreads
+
+Large CSV Viewer itself: Copyright (c) 2026 Tuan Dung Pham, all rights reserved (see LICENSE).

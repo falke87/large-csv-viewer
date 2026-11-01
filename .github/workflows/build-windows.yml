@@ -1,0 +1,46 @@
+# Builds and tests the Windows version on GitHub and uploads a ready-to-run zip.
+name: Build (Windows)
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Qt 6.8.3 (MinGW) and the MinGW compiler
+        uses: jurplel/install-qt-action@v4
+        with:
+          version: "6.8.3"
+          arch: win64_mingw
+          tools: tools_mingw1310
+
+      - name: Build
+        shell: pwsh
+        run: |
+          $env:PATH = "$env:IQTA_TOOLS\mingw1310_64\bin;$env:PATH"
+          cmake -S . -B build -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Release
+          cmake --build build -j 4
+
+      - name: Unit tests
+        shell: pwsh
+        run: |
+          $env:PATH = "$env:IQTA_TOOLS\mingw1310_64\bin;$env:QT_ROOT_DIR\bin;$env:PATH"
+          .\build\tst_core.exe
+
+      - name: Package
+        shell: pwsh
+        run: |
+          $env:PATH = "$env:IQTA_TOOLS\mingw1310_64\bin;$env:QT_ROOT_DIR\bin;$env:PATH"
+          New-Item -ItemType Directory dist\LargeCsvViewer | Out-Null
+          Copy-Item build\LargeCsvViewer.exe, build\csvgen.exe, LICENSE, THIRD_PARTY_NOTICES.txt dist\LargeCsvViewer
+          windeployqt --release --no-translations --no-opengl-sw dist\LargeCsvViewer\LargeCsvViewer.exe
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: LargeCsvViewer-win64
+          path: dist/LargeCsvViewer

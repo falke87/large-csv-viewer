@@ -1,0 +1,7 @@
+Copyright (c) 2026 Tuan Dung Pham. All rights reserved.
+
+This repository is published as a portfolio / demo project so that the source code can be read and
+evaluated. No license is granted to copy, modify, distribute, sublicense or sell this software or any
+part of it, in source or binary form, without prior written permission from the copyright holder.
+
+Third-party components (Qt, MinGW runtime, zlib) keep their own licenses, see THIRD_PARTY_NOTICES.txt.
