@@ -1,5 +1,7 @@
 # Large CSV Viewer (C++ / Qt) — Demo project
 
+[![Build (Windows)](https://github.com/falke87/large-csv-viewer/actions/workflows/build-windows.yml/badge.svg)](https://github.com/falke87/large-csv-viewer/actions/workflows/build-windows.yml)
+
 A fast desktop app for CSV files that are too big for Excel. Opens a file with millions of rows in about a
 second, scrolls smoothly, searches and filters by column, sorts, and exports the result to a small Excel file.
 
